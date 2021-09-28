@@ -16,7 +16,7 @@ jobs:
       - name: Showcase Bug
         run: |
           type demo.cpp
-          demo.exe
+          ./demo.exe
       - name: Showcase Fix
         shell: cmd
         run: |
