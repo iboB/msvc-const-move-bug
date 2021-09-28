@@ -3,16 +3,23 @@ on: [push]
 jobs:
   demo:
     runs-on: windows-latest
+    env:
+      VCVARS: C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\VC\Auxiliary\Build\vcvars64.bat
     steps:
       - name: Clone
         uses: actions/checkout@v2
       - name: Build Bug
-        run: cl demo.cpp
+        shell: cmd
+        run: |
+          call "%VCVARS%"
+          cl demo.cpp
       - name: Showcase Bug
         run: |
           type demo.cpp
           demo.exe
       - name: Showcase Fix
+        shell: cmd
         run: |
+          call "%VCVARS%"
           cl demo.cpp /permissive-
           demo.exe
