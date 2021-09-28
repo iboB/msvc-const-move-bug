@@ -15,7 +15,17 @@ jobs:
           cl demo.cpp
       - name: Showcase Bug
         run: |
+          echo ""
+          echo "===================================="
+          echo "demo source code:"
+          echo "===================================="
+          echo ""
           type demo.cpp
+          echo ""
+          echo "===================================="
+          echo "run demo:"
+          echo "===================================="
+          echo ""
           ./demo.exe
       - name: Showcase Fix
         shell: cmd
